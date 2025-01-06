@@ -1,13 +1,19 @@
+from datetime import datetime, timedelta
+
+end_time = datetime.utcnow()
+
+start_time = end_time - timedelta(minutes=2)
+
 PARAMS = {
-    "format": "geojson",  # Output format (options: geojson, csv, kml, etc.)
-    "starttime": "2025-01-01",  # Start date in ISO8601 format
-    "endtime": "2025-01-06",  # End date in ISO8601 format
-    "minmagnitude": 5,  # Minimum magnitude
-    "maxmagnitude": 7,  # Maximum magnitude
-    "minlatitude": -90,  # Minimum latitude
-    "maxlatitude": 90,  # Maximum latitude
-    "minlongitude": -180,  # Minimum longitude
-    "maxlongitude": 180,  # Maximum longitude
-    "orderby": "time",  # Order results by time (descending)
-    "limit": 100,  # Limit results to 100 events
-}
+        "format": "geojson",              # Output format
+        "starttime": start_time.isoformat(),  # Start date in ISO8601 format
+        "endtime": end_time.isoformat(),      # End date in ISO8601 format
+        "minmagnitude": 5,               # Minimum magnitude
+        "maxmagnitude": 7,               # Maximum magnitude
+        "minlatitude": 3.4,              # Ethiopia's southern boundary
+        "maxlatitude": 14.9,             # Ethiopia's northern boundary
+        "minlongitude": 32.9,            # Ethiopia's western boundary
+        "maxlongitude": 48.0,            # Ethiopia's eastern boundary
+        "orderby": "time",               # Order by most recent
+        "limit": 10                      # Limit to 10 results
+    }
